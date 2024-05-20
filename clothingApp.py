@@ -121,15 +121,15 @@ try:
                 indices=recommend(features,feature_list)
                 col1,col2,col3,col4,col5=st.columns(5)
                 with col1:
-                    st.image(filenames[indices[0][1]])
+                    st.image(filenames[indices[0][0]])
                 with col2:
-                    st.image(filenames[indices[0][2]])
+                    st.image(filenames[indices[0][1]])
                 with col3:
-                    st.image(filenames[indices[0][3]])
+                    st.image(filenames[indices[0][2]])
                 with col4:
-                    st.image(filenames[indices[0][4]])
+                    st.image(filenames[indices[0][3]])
                 with col5:
-                    st.image(filenames[indices[0][5]])
+                    st.image(filenames[indices[0][4]])
             else:
                 st.header("Some error with uploading")
 except:
