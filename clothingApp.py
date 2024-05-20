@@ -27,7 +27,7 @@ def extract_features(img_path,model):
     return normalized_result
 
 def recommend(features,feature_list):
-    neighbours=NearestNeighbors(n_neighbors=6,algorithm="brute",metric="euclidean")
+    neighbours=NearestNeighbors(n_neighbors=6,algorithm="brute",metric="cosine")
     neighbours.fit(feature_list)
     distances,indices=neighbours.kneighbors([features])
     return indices
@@ -121,15 +121,15 @@ try:
                 indices=recommend(features,feature_list)
                 col1,col2,col3,col4,col5=st.columns(5)
                 with col1:
-                    st.image(filenames[indices[0][0]])
-                with col2:
                     st.image(filenames[indices[0][1]])
-                with col3:
+                with col2:
                     st.image(filenames[indices[0][2]])
-                with col4:
+                with col3:
                     st.image(filenames[indices[0][3]])
-                with col5:
+                with col4:
                     st.image(filenames[indices[0][4]])
+                with col5:
+                    st.image(filenames[indices[0][5]])
             else:
                 st.header("Some error with uploading")
 except:
